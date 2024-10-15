@@ -1,8 +1,12 @@
 from UTN_Heroes_Dataset.utn_pp import mostrar_matriz_texto_tabla
 #1 - Obtener existencias: para ello deberá crear una función que cargue la existencia de cada vehículo en todos los garajes y mostrarlos.
 
-def obtener_existencias(matriz: list[list]) -> list[list]:
+def obtener_existencias(matriz: list[list]):
+    """_summary_ Recibe la matriz y muestra las existencias de cada garaje
 
+    Args:
+        matriz (list[list]): _description_ 
+    """
     #las existencias ya estan cargadas en la matriz
     for i in range(len(matriz)):
         print(f'La existencia del modelo {matriz[i][1]} en el garaje {i + 1} es de: {matriz[i][2]} unidades')
@@ -10,7 +14,11 @@ def obtener_existencias(matriz: list[list]) -> list[list]:
 #2 - Calcular por cada garaje la cantidad total de unidades almacenadas entre todos los vehículos de la concesionaria.
 
 def mostrar_total_de_unidades_almacenadas(matriz: list[list]):
+    """_summary_ Recibe la matriz, calcula el total de unidades almacenadas en la concesionaria y muestra la cantidad
 
+    Args:
+        matriz (list[list]): _description_
+    """
     total = 0
     for i in range(len(matriz)):
         total += matriz[i][2]
@@ -20,7 +28,11 @@ def mostrar_total_de_unidades_almacenadas(matriz: list[list]):
 #3 - Datos completos del garaje que almacena menos unidades de vehículos.
 
 def datos_garaje_con_menor_unidades(matriz: list[list]):
+    """_summary_ Recibe la matriz, busca el garaje que almacena la menor unidad e imprime cual es y la cantidad de unidades
 
+    Args:
+        matriz (list[list]): _description_
+    """
     for i in range(len(matriz)):
         if i == 0:
             minimo = matriz[i][2]
@@ -34,7 +46,11 @@ def datos_garaje_con_menor_unidades(matriz: list[list]):
 #4 - Máxima cantidad de unidades almacenadas entre todos los garajes.
 
 def maxima_cantidad_almacenada(matriz: list[list]):
+    """_summary_ Recibe la matriz, busca la mayor cantidad de unidades almacenadas en un solo garaje e imprime la cantidad
 
+    Args:
+        matriz (list[list]): _description_
+    """
     for i in range(len(matriz)):
         if i == 0:
             maximo = matriz[i][2]
@@ -47,7 +63,11 @@ def maxima_cantidad_almacenada(matriz: list[list]):
 # teniendo en cuenta su precio unitario y cantidad de unidades almacenadas en cada garaje.
 
 def obtener_recaudacion(matriz: list[list]):
+    """_summary_ Recibe la matriz, calcula la recaudacion de cada garaje e imprime la recaudacion de cada uno
 
+    Args:
+        matriz (list[list]): _description_
+    """
     for i in range(len(matriz)):
         matriz[i][4] = matriz[i][2] * matriz[i][3]
         print(f'La recaudacion del garaje {i + 1} es de {matriz[i][4]}')
@@ -55,7 +75,11 @@ def obtener_recaudacion(matriz: list[list]):
 #6 - Cantidad de garajes que hayan almacenado 6 o más unidades de vehículos.
 
 def cantidad_garajes_mayor_unidades(matriz: list[list]):
+    """_summary_ Recibe la matriz, calcula la cantidad de garajes con 6 o mas unidades y muestra la cantidad de garajes
 
+    Args:
+        matriz (list[list]): _description_
+    """
     total_garajes = 0
     for i in range(len(matriz)):
         if matriz[i][2] >= 6:
@@ -67,7 +91,12 @@ def cantidad_garajes_mayor_unidades(matriz: list[list]):
 # Además mostrar todos los datos del garaje con el máximo porcentaje de vehículos almacenados.
 
 def porcentajes_de_unidades_por_marca(matriz: list[list]):
+    """_summary_ Recibe la matriz, crea una lista de marcas y una de total de unidades almacenadas por marca, calcula el porcentaje de unidades almacenadas por marca,
+    los imprime, luego averigua y muestra el garaje con el porcentaje mas alto para su marca
 
+    Args:
+        matriz (list[list]): _description_
+    """
     marcas = []
     for i in range(len(matriz)):
         if matriz[i][0] not in marcas:
@@ -105,7 +134,11 @@ Ganancia: {matriz[garaje_maximo_porcentaje][4]}
 #8 - Generar un informe con la recaudación de cada garaje, ordenada de mayor a menor.
 
 def generar_informe_ganacias(matriz: list[list]):
+    """_summary_ Recibe la matriz, la ordena dependiendo de su recaudacion de mayor a menor e imprime el informe con la informacion de cada garaje
 
+    Args:
+        matriz (list[list]): _description_
+    """
     for i in range(len(matriz) - 1):
         for j in range(i + 1, len(matriz)):
             if matriz[i][4] < matriz[j][4]:
