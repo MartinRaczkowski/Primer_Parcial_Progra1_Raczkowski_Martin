@@ -1,3 +1,4 @@
+from UTN_Heroes_Dataset.utn_pp import mostrar_matriz_texto_tabla
 #1 - Obtener existencias: para ello deberá crear una función que cargue la existencia de cada vehículo en todos los garajes y mostrarlos.
 
 def obtener_existencias(matriz: list[list]) -> list[list]:
@@ -103,7 +104,20 @@ Ganancia: {matriz[garaje_maximo_porcentaje][4]}
     
 #8 - Generar un informe con la recaudación de cada garaje, ordenada de mayor a menor.
 
-#def generar_informe_ganacias(matriz: list[list]):
+def generar_informe_ganacias(matriz: list[list]):
+
+    for i in range(len(matriz) - 1):
+        for j in range(i + 1, len(matriz)):
+            if matriz[i][4] < matriz[j][4]:
+                matriz[i][0], matriz[j][0] = matriz[j][0], matriz[i][0]
+                matriz[i][1], matriz[j][1] = matriz[j][1], matriz[i][1]
+                matriz[i][2], matriz[j][2] = matriz[j][2], matriz[i][2]
+                matriz[i][3], matriz[j][3] = matriz[j][3], matriz[i][3]
+                matriz[i][4], matriz[j][4] = matriz[j][4], matriz[i][4]
+
+    nombres_columnas = ['Marca', 'Modelo', 'Unidades', 'Precio', 'Ganancia']
+    mostrar_matriz_texto_tabla(matriz, nombres_columnas)
+
 
 
 

@@ -12,4 +12,12 @@ def cambiar_filas_por_columnas(matriz: list[list]) -> list[list]:
 
     return nueva_matriz
 
+def validar_numero(minimo: int, maximo: int) -> int:
+
+    numero = input(f'Ingrese un numero entre {minimo} y {maximo}: ')
+    if not numero.isdigit() or not(minimo <= int(numero) <= maximo):
+        return validar_numero(minimo, maximo)
+    
+    return int(numero)
+
 
